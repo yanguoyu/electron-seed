@@ -1,5 +1,5 @@
 import { app, BrowserWindow } from 'electron';
-import { isDevelopment } from './enviroment';
+import path from 'path';
 
 let mainWindow
 
