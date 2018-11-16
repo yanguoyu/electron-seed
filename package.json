@@ -7,7 +7,8 @@
     "start:electron": "electron -r ./main/index.js",
     "start:node": "node ./build/dev/node.js",
     "start:render": "node ./build/dev/render.js",
-    "build:render": "node ./build/prod/render.js"
+    "build:render": "node ./build/prod/render.js",
+    "build:node": "node ./build/prod/node.js"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
