@@ -6,7 +6,8 @@
   "scripts": {
     "start:electron": "electron -r ./main/index.js",
     "start:node": "node ./build/dev/node.js",
-    "start:render": "node ./build/dev/render.js"
+    "start:render": "node ./build/dev/render.js",
+    "build:render": "node ./build/prod/render.js"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [

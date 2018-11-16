@@ -1,1 +1,10 @@
 node_modules
+node/logs/
+npm-debug.log
+yarn-error.log
+coverage/
+.idea/
+run/
+.DS_Store
+*.sw*
+*.un~
