@@ -15,3 +15,11 @@ const babelPath = path.resolve(process.cwd(), './.babelrc');
 // 删除app
 npm.shell('rm',['-rf', dstDir]);
 npm.exec('babel', ['main', '-d', 'app', '--config-file', babelPath]);
+// 拷贝package.json
+const buildDir = `${path.resolve(process.cwd(), './main/package.json')}`;
+const packageDir = path.resolve(process.cwd(), './app/package.json');
+// 拷贝package.json 到app目录
+npm.shell('cp',[buildDir, packageDir]);
+// 下载production 依赖node_modules
+const electronNpm = new Npm(path.resolve(process.cwd(), './app'));
+electronNpm.install();

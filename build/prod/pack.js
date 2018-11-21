@@ -2,13 +2,17 @@ const builder = require("electron-builder");
 const path = require('path');
 const Platform = builder.Platform
 const Npm = require('npm-shell');
-const fs = require('fs');
 
-//build render
 const npm = new Npm(process.cwd());
+
+const packPath = path.resolve(process.cwd(), './pack/');
+// 删除render dist
+npm.shell('rm',['-rf', packPath]);
+//build electron
 npm.node('./build/prod/electron.js');
-npm.node('./build/prod/node.js');
 //build node
+npm.node('./build/prod/node.js');
+//build render
 npm.node('./build/prod/render.js');
 // pack
 builder.build({
@@ -16,7 +20,8 @@ builder.build({
   config: {
     directories: {
       buildResources: path.resolve(process.cwd(), './app'),
-      output: path.resolve(process.cwd(), './pack')
+      output: path.resolve(process.cwd(), './pack'),
+      app: path.resolve(process.cwd(), './app'),
     }
   }
 })
