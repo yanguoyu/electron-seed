@@ -1,7 +1,7 @@
 {
   "name": "electron-seed",
   "version": "1.0.0",
-  "main": "./main.js",
+  "main": "main.js",
   "keywords": [
     "Electron",
     "quick",
@@ -12,7 +12,9 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "dependencies": {
-    "npm-shell": "^1.0.11",
-    "cross-port-killer": "^1.0.1"
+    "@babel/runtime": "^7.1.5",
+    "cross-port-killer": "^1.0.1",
+    "electron-log": "^2.2.17",
+    "npm-shell": "^1.0.11"
   }
 }
