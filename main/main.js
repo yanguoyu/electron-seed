@@ -1,8 +1,8 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Menu } from 'electron';
 import path from 'path';
 import log from 'electron-log';
 import isDevelopment from './enviroment';
-import { startNode, stopNode } from './node-run';
+import { startNode, stopNode, getNodeState } from './node-run';
 
 let mainWindow
 log.transports.file.level = 'silly';
@@ -18,7 +18,16 @@ function createWindow () {
     mainWindow.loadURL(`file://${path.resolve(__dirname, './render', 'index.html')}`);
     startNode();
   }
-  mainWindow.on('closed', async function () {
+  Menu.setApplicationMenu(Menu.buildFromTemplate([
+    {
+      label: '关闭node',
+      click: function(){
+        stopNode();
+      }
+    },
+  ]));
+  mainWindow.onbeforeunload = () => !getNodeState();
+  mainWindow.on('close', async function () {
     mainWindow = null
     if(!isDevelopment) {
       stopNode();

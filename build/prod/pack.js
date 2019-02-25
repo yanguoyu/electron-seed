@@ -18,11 +18,13 @@ npm.node('./build/prod/render.js');
 builder.build({
   targets: Platform.MAC.createTarget(),
   config: {
+    productName: 'electron-seed',
+    asar: false,
     directories: {
-      buildResources: path.resolve(process.cwd(), './app'),
+      // buildResources: path.resolve(process.cwd(), './app'),
       output: path.resolve(process.cwd(), './pack'),
       app: path.resolve(process.cwd(), './app'),
-    }
+    },
   }
 })
 .then(() => {

@@ -7,7 +7,8 @@
     "start:electron": "electron -r ./main/index.js",
     "start:node": "node ./build/dev/node.js",
     "start:render": "node ./build/dev/render.js",
-    "pack": "node ./build/prod/pack.js"
+    "pack": "node ./build/prod/pack.js",
+    "rebuild": "electron-rebuild -f -w --module-dir node -d node-dist"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -28,6 +29,7 @@
     "cross-port-killer": "^1.0.1",
     "electron": "^3.0.4",
     "electron-builder": "^20.36.1",
+    "electron-rebuild": "^1.8.2",
     "npm-shell": "^1.0.11",
     "optimist": "^0.6.1"
   },
