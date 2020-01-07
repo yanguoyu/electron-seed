@@ -16,14 +16,19 @@ function createWindow () {
   } else {
     log.info(`file://${path.resolve(__dirname, './render', 'index.html')}`);
     mainWindow.loadURL(`file://${path.resolve(__dirname, './render', 'index.html')}`);
-    startNode();
+    startNode(app.getPath('appData'));
   }
   Menu.setApplicationMenu(Menu.buildFromTemplate([
     {
-      label: '关闭node',
-      click: function(){
-        stopNode();
-      }
+      label: '关于',
+      submenu: [
+        {
+          label: '关闭node',
+          click: function(){
+            stopNode();
+          }
+        },
+      ],
     },
   ]));
   mainWindow.onbeforeunload = () => !getNodeState();

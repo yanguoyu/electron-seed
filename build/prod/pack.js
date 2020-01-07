@@ -21,10 +21,13 @@ builder.build({
     productName: 'electron-seed',
     asar: false,
     directories: {
-      // buildResources: path.resolve(process.cwd(), './app'),
       output: path.resolve(process.cwd(), './pack'),
       app: path.resolve(process.cwd(), './app'),
     },
+    files: [
+      "**/*",
+      "node/node_modules/**/*"
+    ],
   }
 })
 .then(() => {

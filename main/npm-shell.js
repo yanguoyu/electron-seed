@@ -4,7 +4,6 @@
  * 描述：通过代码方式执行Npm命令
  */
 
-import log from 'electron-log';
 var path = require('path')
 var child_process = require('child_process');
 
@@ -62,7 +61,9 @@ Npm.prototype[run] = function (args, env) {
   return child_process.spawnSync(Npm, args, {
     cwd: this.cwd,
     env: combine(env, process.env),
-    stdio: stdio(this.output)
+    // stdio: stdio(this.output),
+    detached: true,
+    stdio: 'ignore'
   })
 }
 
@@ -89,9 +90,6 @@ Npm.prototype.command = function () {
 Npm.prototype.node = function (js, args, env) {
   args = args || []
   args.unshift(js)
-  log.info(JSON.stringify(args));
-  log.info(this.cwd);
-  log.info(process.env);
   return child_process.spawnSync('node', args, {
     cwd: this.cwd,
     env: combine(env, process.env),

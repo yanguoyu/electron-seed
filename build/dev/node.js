@@ -9,5 +9,5 @@ const nodeNpm = new Npm(nodePath);
 if(!fs.existsSync(path.resolve(nodePath, nodeModulesPath))) {
   nodeNpm.install();
 }
-nodeNpm.run('dev');
+console.log(nodeNpm.run('start'));
 
